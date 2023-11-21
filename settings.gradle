@@ -1,3 +1,7 @@
 include ':file_operations'
 include ':portscanner'
 include ':app', ':commons_compress_7z'
+
+if (file("bitrise-build-cache.gradle").exists() && System.getenv("CI") != null) {
+    apply(from: "bitrise-build-cache.gradle")
+}
